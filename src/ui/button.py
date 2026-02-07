@@ -23,10 +23,16 @@ class Button:
                 self.callback()
 
     def draw(self, screen):
-        color = Theme.UI_HOVER if self.is_hovered else Theme.UI_BG
-        pygame.draw.rect(screen, color, self.rect, border_radius=2)
-        pygame.draw.rect(screen, Theme.PRIMARY, self.rect, 1, border_radius=2)
+        # Outline Color
+        color = Theme.ACCENT if self.is_hovered else Theme.PRIMARY
         
-        text_surf = self.font.render(self.text, True, Theme.TEXT)
+        # In the reference, buttons are transparent but have a pink outline
+        # On hover, they might have a slight glow or darker pink bg
+        if self.is_hovered:
+            pygame.draw.rect(screen, Theme.UI_HOVER, self.rect, border_radius=1)
+            
+        pygame.draw.rect(screen, color, self.rect, 1, border_radius=1)
+        
+        text_surf = self.font.render(self.text, True, color)
         text_rect = text_surf.get_rect(center=self.rect.center)
         screen.blit(text_surf, text_rect)
