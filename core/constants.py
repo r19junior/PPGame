@@ -1,0 +1,12 @@
+# GAME_RES = (320, 180)
+# Window scale factor
+SCALE = 4
+GAME_RES = (320, 180)
+WINDOW_RES = (GAME_RES[0] * SCALE, GAME_RES[1] * SCALE)
+
+# Colors (Adventure Palette)
+COLOR_BG = (20, 16, 19)
+COLOR_TEXT = (245, 237, 220)
+COLOR_ACCENT = (76, 104, 133)
+COLOR_HIGHLIGHT = (143, 179, 179)
+COLOR_BUTTON = (50, 60, 57)
